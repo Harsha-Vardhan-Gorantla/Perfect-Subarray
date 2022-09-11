@@ -1,0 +1,31 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+int n;
+cin>>n;
+int arr[n+1]={0},arr2[n+1]={0};
+for( int i=1;i<=n;i++)
+cin>>arr[i];
+for( int i=1;i<=n;i++)
+{
+arr2[i]=arr[i]+arr2[i-1] ;
+}
+int count=0;
+for( int i=1;i<=n;i++)
+{
+for( int j=i;j<=n;j++)
+{
+int a=arr2[j]-arr2[i-1] ;
+int b=(int)sqrt(a);
+int c=b*b;
+if(a==c)
+{
+count++;
+}
+}
+}
+cout<<count<<endl;
+return 0;
+}
